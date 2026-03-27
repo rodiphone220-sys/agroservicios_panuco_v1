@@ -1,0 +1,5 @@
+{
+  "name": "Farmer Parts - Gestión Agrícola",
+  "description": "Sistema POS y gestión de inventario especializado en refacciones para tractores agrícolas (Massey Ferguson, John Deere, etc.).",
+  "requestFramePermissions": ["camera"]
+}

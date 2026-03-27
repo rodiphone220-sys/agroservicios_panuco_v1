@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Farmer Parts - Internal Business Tool
+    // Access is controlled by the application's own auth layer.
+    // Any authenticated Firebase user (including anonymous) has full access.
+    // ===============================================================
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // All collections: allow any authenticated user (incl. anonymous) full access
+    match /{document=**} {
+      allow read, write: if isAuthenticated();
+    }
+  }
+}
+
